@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-09-11T03:49:05.605Z</updated>
+  <updated>2022-09-14T14:37:27.272Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,31 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>hello-world</title>
-    <link href="http://example.com/2022/09/11/hello-world-1/"/>
-    <id>http://example.com/2022/09/11/hello-world-1/</id>
-    <published>2022-09-11T03:49:05.000Z</published>
-    <updated>2022-09-11T03:49:05.605Z</updated>
+    <title>“ssh密钥的远程登陆”</title>
+    <link href="http://example.com/2022/09/14/%E2%80%9Cssh%E5%AF%86%E9%92%A5%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%99%BB%E9%99%86%E2%80%9D/"/>
+    <id>http://example.com/2022/09/14/%E2%80%9Cssh%E5%AF%86%E9%92%A5%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%99%BB%E9%99%86%E2%80%9D/</id>
+    <published>2022-09-14T11:09:18.000Z</published>
+    <updated>2022-09-14T14:37:27.272Z</updated>
     
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2022/09/10/hello-world/"/>
-    <id>http://example.com/2022/09/10/hello-world/</id>
-    <published>2022-09-10T01:05:31.625Z</published>
-    <updated>2022-09-10T01:05:31.625Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="wsl的安装配置"><a href="#wsl的安装配置" class="headerlink" title="wsl的安装配置"></a>wsl的安装配置</h3><p>以管理员身份打开powershell，再输入wsl —insatll等待安装完成；然后保险起见，通过wsl —set-default-version 2来切换至wsl2。然后打开Ubuntu进行账号设置就行了。<br><img src="/images/3.1.jpg" alt="wsl界面">  </p><h3 id="通过remote实现vscode与wsl的连接"><a href="#通过remote实现vscode与wsl的连接" class="headerlink" title="通过remote实现vscode与wsl的连接"></a>通过remote实现vscode与wsl的连接</h3><p>首先在vscode里面下载remote -wsl插件<br><img src="/images/3.2.jpg" alt="remote插件"><br>然后打开Ubuntu，输入code .，本来应该就成功了，但我这边却显示路径出错，这应该是因为我vscode之前安装在c盘，后来又将它移到了d盘，所以修改了path里面的vscode路径，再次输入code .然后等待一小会就连接成功进入了vscode。以后进入也可以直接点击vscode左下角那个小闪电。<br><img src="/images/3.3.jpg" alt="code ."><br><img src="/images/3.4.jpg" alt="vscode与wsl的连接"></p><h3 id="ssh密钥的远程服务登陆"><a href="#ssh密钥的远程服务登陆" class="headerlink" title="ssh密钥的远程服务登陆"></a>ssh密钥的远程服务登陆</h3><h4 id="建立-ssh目录"><a href="#建立-ssh目录" class="headerlink" title="建立.ssh目录"></a>建立.ssh目录</h4><p>打开Ubuntu，输入ssh-keygen -t rsa指令来新建.ssh目录。<br><img src="/images/3.5.jpg" alt=".ssh目录的建立"></p><h4 id="主机公钥放至Ubuntu"><a href="#主机公钥放至Ubuntu" class="headerlink" title="主机公钥放至Ubuntu"></a>主机公钥放至Ubuntu</h4><p>打开PowerShell窗口，因为从网上了解到Ubuntu中文件目录可通过\wsl$在文件夹找到，所以在文件夹里面找到wsl中的.ssh的路径，然后将主机的公钥传入Ubuntu的.ssh/authorized_keys中。<br><img src="/images/3.6.jpg" alt="公钥放至Ubuntu"></p><h4 id="配置config"><a href="#配置config" class="headerlink" title="配置config"></a>配置config</h4><p>首先在Ubuntu中通过ifconfig指令来查询ip<br><img src="/images/3.7.jpg" alt="查询ip"><br>然后在主机中配置config文件，路径为c:/uesrs/usersname/.ssh/config<br><img src="/images/3.8.jpg" alt="配置config"><br>host里面配置的内容有点多，但我感觉现阶段的我只配这三样就够了，因为我对其他配置内容也看不太懂。</p><h4 id="连接远程服务器"><a href="#连接远程服务器" class="headerlink" title="连接远程服务器"></a>连接远程服务器</h4><p>在PowerShell里面输入ssh hostname即可，但我这里出现了connection refused的情况。<br><img src="/images/3.9.jpg" alt="connection refused"><br>查询资料后发现可能是sshd的缘故，所以在ubuntu中输入/etc/init.d/ssh status以查询<br><img src="/images/3.10.jpg" alt="查询 sshd"><br>显示sshd not run。所以通过vi 修改sshd_config文件(修改之前需要先将sshd_config的其他人权限更改为读写：sudo chmod o=rw /etc/ssh/sshd_config，修改完成后再将文件改回只读权限：sudo chmod o-w /etc/ssh/sshd_config)<br><img src="/images/3.11.jpg" alt="sshd_config文件"><br>进入文件后将port 22这一块的注释去掉成图中即可。<br>然后在Ubuntu中通过sudo service ssh —full-restart来重启sshd。<br><img src="/images/3.12.jpg" alt="重启sshd"><br>最后在PowerShell中输入ssh hostname，第一次连接需要将远程服务器的公钥储存在.ssh/known_host中，所以需要输入yes确定，再输入密码过后就能实现免密登陆了。<br><img src="/images/3.13.jpg" alt="远程登陆"></p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+    <summary type="html">&lt;h3 id=&quot;wsl的安装配置&quot;&gt;&lt;a href=&quot;#wsl的安装配置&quot; class=&quot;headerlink&quot; title=&quot;wsl的安装配置&quot;&gt;&lt;/a&gt;wsl的安装配置&lt;/h3&gt;&lt;p&gt;以管理员身份打开powershell，再输入wsl —insatll等待安装完成；然后保险起</summary>
       
     
     
